@@ -1,5 +1,31 @@
 .icon-component {
+	--size: 124px;
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: var(--size);
+	height: var(--size);
+	background-color: var(--color-bg-card);
+	line-height: 0;
+	padding: 0.75rem;
+
+	box-sizing: border-box;
+
+	[class^='material-symbols'] {
+		font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+		font-size: calc(var(--size) * 0.75);
+	}
+
 	&.clickable {
 		cursor: pointer;
+	}
+
+	&.toggle-on {
+		border: 1px solid var(--color-primary);
+	}
+
+	&.toggle-off {
+		border: 1px solid var(--color-fg-muted);
 	}
 }
