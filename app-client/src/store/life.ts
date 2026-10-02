@@ -15,6 +15,7 @@ export interface LifeformData {
 	parentId: string | null
 	wiki: string
 }
+export type LifeformInput = Omit<LifeformData, 'id'>
 
 export interface NodeData extends LifeformData {
 	parent: NodeData | null
@@ -83,18 +84,23 @@ export const useLife = create<LifeStata>((set, get) => {
 		set({ lifeNodes })
 	}
 
-	async function addLifeform(params: Omit<LifeformData, 'id'>): Promise<boolean> {
-		const lifeNodes = get().lifeNodes
-		if (Object.values(lifeNodes).find((node) => node.name === params.name)) return false
+	async function addLifeform(params: LifeformInput): Promise<boolean> {
+		const currentLifeNodes = get().lifeNodes
+
+		// Check for duplicates
+		if (Object.values(currentLifeNodes).find((node) => node.name === params.name)) return false
 
 		const newId = uuidv4()
 		const newLifeform: LifeformData = { id: newId, ...params }
 
+		// Mutate local array reference
 		const lifeformData = lifeformJson as LifeformData[]
 		lifeformData.push(newLifeform)
 
+		// Write to disk/API
 		await updateLifeform(lifeformData)
 
+		// Re-build tree relationships from the updated JSON module
 		await fetchLifeforms()
 
 		return true
@@ -137,3 +143,9 @@ export const useLife = create<LifeStata>((set, get) => {
 
 	return { lifeNodes, fetchLifeforms, addLifeform, rootNode, setRootNode, selectedNode, setSelectedNode, toggleShowChildren: setShowChildren }
 })
+
+if (import.meta.hot) {
+	import.meta.hot.accept('../assets/test-data/lifeform.json', () => {
+		useLife.getState().fetchLifeforms()
+	})
+}

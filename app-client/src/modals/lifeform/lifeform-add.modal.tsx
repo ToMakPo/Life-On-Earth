@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 
-import { Taxonomies, useLife, type LifeformData, type Taxonomy, type NodeData } from '../../store/life'
+import { Taxonomies, useLife, type Taxonomy, type NodeData, type LifeformInput } from '../../store/life'
 import BubbleText from '../../components/bubble-text/bubble-text.component'
 import Icon from '../../components/icon/icon.component'
 
 import './lifeform.styles.scss'
 
-type LifeformInput = Omit<LifeformData, 'id'>
 const getEmptyLifeform = (): LifeformInput => ({
 	name: '',
 	commonNames: [],
@@ -117,7 +116,7 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 	async function saveLifeform(lifeform: LifeformInput) {
 		if (!validateInputs()) return false
 
-		addLifeform(lifeform)
+		await addLifeform(lifeform)
 		return true
 	}
 
@@ -184,7 +183,7 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 
 	async function handleSave(e: React.SubmitEvent<HTMLFormElement>) {
 		e.preventDefault()
-		
+
 		// Parse and add any pending common names before saving.
 		newLifeform.commonNames = parsePendingCommonNames()
 
