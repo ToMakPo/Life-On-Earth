@@ -1,6 +1,6 @@
 import type { LifeformData } from '../../store/life'
 
-export const updateLifeform = async (updatedData: LifeformData[]) => {
+export const updateLifeformAPI = async (updatedData: LifeformData[]) => {
 	try {
 		const response = await fetch('/api/save-lifeform', {
 			method: 'POST',

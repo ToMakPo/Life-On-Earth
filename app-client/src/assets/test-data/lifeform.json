@@ -16,7 +16,10 @@
   {
     "id": "1d1a5ba8-20c4-4c83-bd08-0696ce3b957b",
     "name": "Bacteria",
-    "commonNames": [],
+    "commonNames": [
+      "Bacteria",
+      "Bacterium"
+    ],
     "meaning": "",
     "characteristics": "",
     "taxonomy": "domain",
@@ -27,7 +30,10 @@
   {
     "id": "9ebcf515-6b0d-4384-9872-d0533a253228",
     "name": "Archaea",
-    "commonNames": [],
+    "commonNames": [
+      "Archaea",
+      "Archaeon"
+    ],
     "meaning": "",
     "characteristics": "",
     "taxonomy": "domain",
@@ -38,7 +44,9 @@
   {
     "id": "40339043-0431-489d-a3af-a36cf7789b35",
     "name": "Eukarya",
-    "commonNames": [],
+    "commonNames": [
+      "Eukaryotes"
+    ],
     "meaning": "",
     "characteristics": "",
     "taxonomy": "domain",
@@ -49,7 +57,9 @@
   {
     "id": "cb6dc0cd-25d1-4d2d-bfee-e1abdbb311ba",
     "name": "Monera",
-    "commonNames": [],
+    "commonNames": [
+      "Prokaryotes"
+    ],
     "meaning": "",
     "characteristics": "",
     "taxonomy": "kingdom",
@@ -60,7 +70,9 @@
   {
     "id": "cd30c4e0-7938-463b-9b79-b5062f30fa70",
     "name": "Protista",
-    "commonNames": [],
+    "commonNames": [
+      "Protists"
+    ],
     "meaning": "",
     "characteristics": "",
     "taxonomy": "kingdom",
@@ -71,7 +83,11 @@
   {
     "id": "3eeb1d35-2a56-4e92-a2e8-43c84ec20805",
     "name": "Plantae",
-    "commonNames": [],
+    "commonNames": [
+      "Plants",
+      "Vegetation",
+      "Flora"
+    ],
     "meaning": "[\"Plants\", \"Vegetation\", \"Flora\"],",
     "characteristics": "",
     "taxonomy": "kingdom",
@@ -111,7 +127,9 @@
   {
     "id": "16fbd34c-dbbc-480b-b652-2380f499c975",
     "name": "Agmata",
-    "commonNames": [],
+    "commonNames": [
+      "Annelids"
+    ],
     "meaning": "Little ring",
     "characteristics": "multiple circular segments",
     "taxonomy": "phylum",
@@ -135,7 +153,9 @@
   {
     "id": "f6d514bc-d046-402b-a7fd-461fae409861",
     "name": "Brachiopoda",
-    "commonNames": [],
+    "commonNames": [
+      "Lamp shells"
+    ],
     "meaning": "Arm foot",
     "characteristics": "Lophophore and pedicle",
     "taxonomy": "phylum",
@@ -146,7 +166,11 @@
   {
     "id": "297072d9-bf81-4c80-9eca-8db8e9bfffd7",
     "name": "Bryozoa",
-    "commonNames": [],
+    "commonNames": [
+      "moss animals",
+      "sea mats",
+      "ectoprocts"
+    ],
     "meaning": "Moss animals",
     "characteristics": "Lophophore, no pedicle, ciliated tentacles, anus outside ring of cilia",
     "taxonomy": "phylum",
@@ -157,7 +181,9 @@
   {
     "id": "a3bbd608-fceb-4b54-96df-5b21c4c691e5",
     "name": "Chaetognatha",
-    "commonNames": [],
+    "commonNames": [
+      "arrow worms"
+    ],
     "meaning": "Longhair jaw",
     "characteristics": "Chitinous spines either side of head, fins",
     "taxonomy": "phylum",
