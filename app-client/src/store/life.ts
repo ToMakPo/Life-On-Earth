@@ -93,9 +93,7 @@ export const useLife = create<LifeStata>((set, get) => {
 		const lifeformData = lifeformJson as LifeformData[]
 		lifeformData.push(newLifeform)
 
-		const response = updateLifeform(lifeformData)
-
-		console.log('addLifeform responce:', { response })
+		await updateLifeform(lifeformData)
 
 		await fetchLifeforms()
 

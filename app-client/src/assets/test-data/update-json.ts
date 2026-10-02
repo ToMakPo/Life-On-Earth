@@ -2,7 +2,7 @@ import type { LifeformData } from '../../store/life'
 
 export const updateLifeform = async (updatedData: LifeformData[]) => {
 	try {
-		const response = await fetch('/api/save-life-form', {
+		const response = await fetch('/api/save-lifeform', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -14,7 +14,7 @@ export const updateLifeform = async (updatedData: LifeformData[]) => {
 			throw new Error('Server middleware failed to update the JSON file.')
 		}
 
-		console.log('Successfully saved to client/src/assets/test-data/life-form.json')
+		console.info('Successfully saved lifeform')
 	} catch (error) {
 		console.error('Error saving JSON:', error)
 	}
