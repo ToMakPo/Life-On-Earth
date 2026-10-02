@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import AddLifeformModal from './modals/add-lifeform.modal'
+import AddLifeformModal from '../../modals/lifeform/lifeform-add.modal'
 
 import { useLife } from '../../store/life'
 

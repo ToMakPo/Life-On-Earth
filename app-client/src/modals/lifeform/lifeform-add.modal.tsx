@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Taxonomies, useLife, type LifeformData, type Taxonomy, type NodeData } from '../../../store/life'
-import BubbleText from '../../../components/bubble-text/bubble-text.component'
-import Icon from '../../../components/icon/icon.component'
+
+import { Taxonomies, useLife, type LifeformData, type Taxonomy, type NodeData } from '../../store/life'
+import BubbleText from '../../components/bubble-text/bubble-text.component'
+import Icon from '../../components/icon/icon.component'
+
+import './lifeform.styles.scss'
 
 type LifeformInput = Omit<LifeformData, 'id'>
 const getEmptyLifeform = (): LifeformInput => ({
@@ -326,11 +329,11 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 				</button>
 			</div>
 
-			{errorMessage && <p className='error-message'>{errorMessage}</p>}
+			{errorMessage && <span className='error-message'>{errorMessage}</span>}
 		</form>
 	)
 
-	return <div className='add-lifeform-modal'>{form}</div>
+	return <div id='add-lifeform-modal' className='modal'>{form}</div>
 }
 
 export default AddLifeformModal
