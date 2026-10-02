@@ -1,0 +1,155 @@
+:root {
+	font-family: 'Quicksand', sans-serif;
+	color-scheme: light dark;
+
+	--color-bg: light-dark(#dddddd, #222222);
+	--color-fg: light-dark(#333333, #cccccc);
+	--color-fg-emphasis: light-dark(#000000, #ffffff);
+	--color-fg-muted: light-dark(#666666, #999999);
+
+	--color-link: light-dark(#bbbbbb, #444444);
+
+	--color-bg-card: light-dark(#ffffff, #333333);
+
+	--color-primary: light-dark(#007bff, #66a1ff);
+	--color-secondary: light-dark(#6c757d, #999999);
+	--color-success: light-dark(#28a745, #66ff99);
+	--color-failed: light-dark(#dc3545, #ff6666);
+	--color-warning: light-dark(#ffc107, #ffcc66);
+	--color-danger: light-dark(#dc3545, #ff6666);
+
+	--color-btn-bg: light-dark(#dddddd, #333333);
+	--color-btn-fg: light-dark(#333333, #cccccc);
+
+	--shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 4px 8px 3px rgba(0, 0, 0, 0.15);
+}
+
+html,
+body {
+	font-size: 16px;
+	background-color: var(--color-bg);
+	color: var(--color-fg);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.emphasis {
+	color: var(--color-fg-emphasis);
+}
+
+.muted {
+	color: var(--color-fg-muted);
+}
+
+.disabled,
+:disabled {
+	filter: grayscale(80%) brightness(50%);
+	cursor: not-allowed;
+}
+
+
+/// BUTTON ///
+button,
+.btn {
+	--bg: var(--color-btn-bg);
+	--fg: var(--color-btn-fg);
+	background-color: var(--bg);
+	color: var(--fg);
+	border: 1px solid transparent;
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+	transition: filter 0.2s ease-in-out;
+
+	&.primary {
+		--bg: var(--color-primary);
+		--fg: var(--color-bg);
+	}
+
+	&.secondary {
+		--bg: var(--color-secondary);
+		--fg: var(--color-bg);
+	}
+
+	&.success {
+		--bg: var(--color-success);
+		--fg: var(--color-bg);
+	}
+
+	&.failed {
+		--bg: var(--color-failed);
+		--fg: var(--color-bg);
+	}
+
+	&.warning {
+		--bg: var(--color-warning);
+		--fg: var(--color-bg);
+	}
+
+	&.danger {
+		--bg: var(--color-danger);
+		--fg: var(--color-bg);
+	}
+
+	&.muted {
+		--bg: var(--color-fg-muted);
+		--fg: var(--color-bg);
+		color: var(--fg);
+	}
+
+	&:disabled,
+	&.disabled {
+		filter: grayscale(50%) brightness(50%);
+	}
+
+	&.outline {
+		color: var(--bg);
+		background-color: transparent;
+		border: 1px solid var(--bg);
+
+		&:disabled,
+		&.disabled {
+			filter: grayscale(60%) brightness(75%);
+		}
+	}
+
+	&:not(.primary):not(.secondary):not(.success):not(.failed):not(.warning):not(.danger):not(.muted) {
+		&:not(.outline) {
+			background-color: var(--color-btn-bg);
+			color: var(--color-btn-fg);
+			border: 1px solid transparent;
+
+			&:disabled,
+			&.disabled {
+				filter: grayscale(60%) brightness(75%);
+			}
+		}
+
+		&.outline {
+			color: var(--color-fg);
+			background-color: transparent;
+			border: 1px solid var(--color-fg);
+
+			&:disabled,
+			&.disabled {
+				filter: grayscale(60%) brightness(75%);
+			}
+		}
+	}
+
+	&:hover:not(:is(:disabled, .disabled)) {
+		filter: brightness(120%);
+	}
+}
+
+
+/// CARD ///
+.card {
+	background-color: var(--color-bg-card);
+	color: var(--color-fg);
+	border: 1px solid var(--color-fg-muted);
+	border-radius: 0.5rem;
+	padding: 1rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

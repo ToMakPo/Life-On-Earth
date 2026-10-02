@@ -1,0 +1,135 @@
+[
+	{
+		"id": "1",
+		"name": "Life",
+		"commonNames": ["Life", "Living organisms"],
+		"taxonomy": null,
+		"description": "Life encompasses all living organisms on Earth, including bacteria, archaea, and eukaryotes. It is characterized by the ability to grow, reproduce, respond to stimuli, and adapt to the environment.",
+		"parentId": null,
+		"wiki": "https://en.wikipedia.org/wiki/Life"
+	},
+	{
+		"id": "2",
+		"name": "Bacteria",
+		"commonNames": ["Bacteria", "Bacterium"],
+		"taxonomy": "domain",
+		"description": "Bacteria are single-celled microorganisms that can be found in various environments. They play a crucial role in nutrient cycling, fermentation, and can also cause diseases.",
+		"parentId": "1"
+	},
+	{
+		"id": "3",
+		"name": "Archaea",
+		"commonNames": ["Archaea", "Archaeon"],
+		"taxonomy": "domain",
+		"description": "Archaea are single-celled microorganisms that are similar to bacteria but have distinct molecular characteristics. They are often found in extreme environments.",
+		"parentId": "1"
+	},
+	{
+		"id": "4",
+		"name": "Eukarya",
+		"commonNames": ["Eukaryotes"],
+		"taxonomy": "domain",
+		"description": "Eukarya are organisms whose cells have a nucleus enclosed within membranes. This domain includes animals, plants, fungi, and protists.",
+		"parentId": "1"
+	},
+	{
+		"id": "5",
+		"name": "Monera",
+		"commonNames": ["Prokaryotes"],
+		"taxonomy": "kingdom",
+		"description": "Monera is a kingdom that includes prokaryotic organisms, which lack a nucleus and other membrane-bound organelles. This kingdom encompasses bacteria and archaea.",
+		"parentId": "2"
+	},
+	{
+		"id": "6",
+		"name": "Protista",
+		"commonNames": ["Protists"],
+		"taxonomy": "kingdom",
+		"description": "Protists are a diverse group of eukaryotic microorganisms that are not animals, plants, or fungi. They can be unicellular or multicellular and exhibit various modes of nutrition.",
+		"parentId": "4"
+	},
+	{
+		"id": "7",
+		"name": "Plantae",
+		"commonNames": ["Plants", "Vegetation", "Flora"],
+		"taxonomy": "kingdom",
+		"description": "Plants are multicellular eukaryotic organisms that belong to the kingdom Plantae. They are primarily autotrophic, producing their own food through photosynthesis.",
+		"parentId": "4"
+	},
+	{
+		"id": "8",
+		"name": "Fungi",
+		"commonNames": ["Fungi", "Mushrooms", "Yeasts", "Molds"],
+		"taxonomy": "kingdom",
+		"description": "Fungi are a kingdom of eukaryotic organisms that includes yeasts, molds, and mushrooms. They play essential roles in decomposition and nutrient cycling.",
+		"parentId": "4"
+	},
+	{
+		"id": "9",
+		"name": "Animalia",
+		"commonNames": ["Animals"],
+		"taxonomy": "kingdom",
+		"description": "Animals are multicellular eukaryotic organisms that form the biological kingdom Animalia. They are characterized by their ability to move, consume organic material, and reproduce sexually.",
+		"parentId": "4"
+	},
+	{
+		"id": "10",
+		"name": "Agmata",
+		"commonNames": ["Annelids"],
+		"meaning": "Little ring",
+		"characteristics": "multiple circular segments",
+		"taxonomy": "phylum",
+		"description": "Agmata, commonly known as annelids, are a phylum of segmented worms that includes earthworms, leeches, and polychaetes. They are characterized by their segmented bodies and coelom.",
+		"parentId": "9"
+	},
+	{
+		"id": "11",
+		"name": "Arthropoda",
+		"commonNames": ["Arthropods"],
+		"meaning": "Jointed foot",
+		"characteristics": "Segmented bodies and jointed limbs, with chitin exoskeleton",
+		"taxonomy": "phylum",
+		"description": "Arthropods are a phylum of invertebrate animals that includes insects, arachnids, myriapods, and crustaceans. They are characterized by their exoskeleton, segmented bodies, and jointed appendages.",
+		"parentId": "9"
+	},
+	{
+		"id": "12",
+		"name": "Brachiopoda",
+		"commonNames": ["Lamp shells"],
+		"meaning": "Arm foot",
+		"characteristics": "Lophophore and pedicle",
+		"taxonomy": "phylum",
+		"description": "Brachiopods are a phylum of marine animals that have hard 'valves' (shells) on the upper and lower surfaces. They are often known as lamp shells due to their resemblance to ancient oil lamps.",
+		"parentId": "9"
+	},
+	{
+		"id": "13",
+		"name": "Bryozoa",
+		"commonNames": ["moss animals", "sea mats", "ectoprocts"],
+		"meaning": "Moss animals",
+		"characteristics": "Lophophore, no pedicle, ciliated tentacles, anus outside ring of cilia",
+		"taxonomy": "phylum",
+		"description": "Bryozoans are a phylum of aquatic invertebrate animals that live in colonies. They are also known as moss animals due to their appearance and are filter feeders.",
+		"parentId": "9"
+	},
+	{
+		"id": "14",
+		"name": "Chaetognatha",
+		"commonNames": ["arrow worms"],
+		"meaning": "Longhair jaw",
+		"characteristics": "Chitinous spines either side of head, fins",
+		"taxonomy": "phylum",
+		"description": "Chaetognaths, commonly known as arrow worms, are a phylum of predatory marine worms. They are characterized by their transparent, elongated bodies and grasping spines on the head.",
+		"parentId": "9"
+	},
+	{
+		"id": "15",
+		"name": "Chordata",
+		"commonNames": ["Chordates"],
+		"meaning": "With a cord",
+		"characteristics": "Hollow dorsal nerve cord, notochord, pharyngeal slits, endostyle, post-anal tail",
+		"taxonomy": "phylum",
+		"description": "Chordates are a phylum of animals that possess a notochord, a dorsal nerve cord, pharyngeal slits, an endostyle, and a post-anal tail at some stage of their development. This group includes vertebrates and some invertebrates.",
+		"parentId": "9"
+	}
+]
