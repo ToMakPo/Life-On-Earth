@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
+import AddLifeformModal from './modals/add-lifeform.modal'
+
 import { useLife } from '../../store/life'
 
 import './main.styles.scss'
-import AddLifeformModal from './modals/add-lifeform.modal'
 
 const MainPage = () => {
 	const lifeNodes = useLife((state) => state.lifeNodes)
@@ -16,19 +17,24 @@ const MainPage = () => {
 		</button>
 	)
 
-	const addLifeformForm = <AddLifeformModal
-		show={openAddLifeformModal}
-		onClose={() => setOpenAddLifeformModal(false)}
-	/>
+	const addLifeformForm = <AddLifeformModal show={openAddLifeformModal} onClose={() => setOpenAddLifeformModal(false)} />
 
 	return (
 		<div className='main-page'>
 			{addLifeformButton}
 			{addLifeformForm}
 
-			{Object.keys(lifeNodes).map((node) => (
-				<div key={lifeNodes[node].id}>{lifeNodes[node].name}</div>
-			))}
+			<code>
+				{Object.values(lifeNodes).map((node) => {
+					const recordData = { } as Record<string, any>
+					recordData.id = node.id
+					recordData.name = node.name
+					recordData.parentId = node.parentId
+					recordData.childCount = node.children.length
+					
+					return <div key={recordData.id}>{JSON.stringify(recordData, null, 2)}</div>
+				})}
+			</code>
 		</div>
 	)
 }

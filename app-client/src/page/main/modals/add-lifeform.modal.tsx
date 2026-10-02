@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Taxonomies, useLife, type LifeformData, type Taxonomy, type NodeData } from '../../../store/life'
 import BubbleText from '../../../components/bubble-text/bubble-text.component'
+import Icon from '../../../components/icon/icon.component'
 
-type LifeformInput = Omit<LifeformData, 'id'> & { parentName: string; showWiki: boolean }
+type LifeformInput = Omit<LifeformData, 'id'>
 const getEmptyLifeform = (): LifeformInput => ({
 	name: '',
 	commonNames: [],
@@ -11,9 +12,7 @@ const getEmptyLifeform = (): LifeformInput => ({
 	taxonomy: null as unknown as Taxonomy,
 	description: '',
 	parentId: null,
-	parentName: '',
-	wiki: '',
-	showWiki: false
+	wiki: ''
 })
 
 interface AddLifeformModalProps {
@@ -26,11 +25,15 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 	const addLifeform = useLife((state) => state.addLifeform)
 
 	const [errorMessage, setErrorMessage] = useState<string | null>(null)
+	const [showWiki, setShowWiki] = useState(false)
 
 	const [newLifeform, setNewLifeform] = useState<LifeformInput>(getEmptyLifeform())
 	useEffect(() => {
 		// Reset the new lifeform state when the modal is shown.
-		if (show) setNewLifeform(getEmptyLifeform())
+		if (show) {
+			setNewLifeform(getEmptyLifeform())
+			setShowWiki(false)
+		}
 	}, [show])
 
 	useEffect(() => {
@@ -53,8 +56,8 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 		const maxIndex = Object.values(lifeNodes).reduce((max, node) => {
 			const index = Taxonomies.indexOf(node.taxonomy)
 			return index > max ? index : max
-		}, 0)
-		const newList = Taxonomies.slice(0, maxIndex + 1)
+		}, -1)
+		const newList = Taxonomies.slice(0, maxIndex + 2)
 
 		if (!newLifeform.taxonomy || !newList.includes(newLifeform.taxonomy)) {
 			newLifeform.taxonomy = newList[newList.length - 1]
@@ -78,10 +81,10 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 	}, [lifeNames, newLifeform.taxonomy])
 
 	const parentNode: NodeData | null = useMemo(() => {
-		const parentNode = lifeNames[newLifeform.parentName] ?? null
+		const parentNode = lifeNodes[newLifeform.parentId ?? ''] ?? null
 		newLifeform.parentId = parentNode?.id ?? null
 		return parentNode
-	}, [lifeNames, newLifeform.parentName])
+	}, [lifeNodes, newLifeform.parentId])
 
 	/** Saves the new lifeform.
 	 *
@@ -100,6 +103,7 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 
 	async function handleSave(e: React.SubmitEvent<HTMLFormElement>) {
 		e.preventDefault()
+		addCommonNames()
 		const saved = await saveLifeform()
 		if (saved) handleClose(true)
 	}
@@ -138,6 +142,23 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 		return true
 	}
 
+	function addCommonNames() {
+		const input = document.getElementById('lifeform-common-name-input') as HTMLInputElement
+		if (!input) return
+
+		const names = input.value
+			.split(',')
+			.map((s) => s.trim().replace(/[^\w\s\'\-]/g, ''))
+			.filter((s) => s)
+
+		input.value = ''
+
+		if (names.length === 0) return
+
+		const allNames = [...new Set([...newLifeform.commonNames, ...names])]
+		setNewLifeform((prev) => ({ ...prev, commonNames: allNames }))
+	}
+
 	/////////////////
 	/// RENDERING ///
 	/////////////////
@@ -152,7 +173,7 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 				<input
 					type='text'
 					id='lifeform-name-input'
-					placeholder='Lifeform Name'
+					placeholder='The scientific name of the lifeform'
 					value={newLifeform?.name ?? ''}
 					onChange={(e) => setNewLifeform((prev) => ({ ...prev, name: e.target.value }))}
 				/>
@@ -162,29 +183,9 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 				<label htmlFor='lifeform-common-name-input'>Common Names</label>
 
 				<div className='row'>
-					<input type='text' id='lifeform-common-name-input' />
+					<input type='text' id='lifeform-common-name-input' placeholder='Comma-separated list of names commonly used for the lifeform' />
 
-					<button
-						className='icon-button'
-						type='button'
-						onClick={() => {
-							const input = document.getElementById('lifeform-common-name-input') as HTMLInputElement
-							if (!input) return
-
-							const names = input.value
-								.split(',')
-								.map((s) => s.trim().replace(/[^\w\s\'\-]/g, ''))
-								.filter((s) => s)
-
-							input.value = ''
-							input.focus()
-
-							const allNames = [...new Set([...newLifeform.commonNames, ...names])]
-							setNewLifeform((prev) => ({ ...prev, commonNames: allNames }))
-						}}
-					>
-						+
-					</button>
+					<Icon name='add' onClick={addCommonNames} />
 				</div>
 
 				{newLifeform && (
@@ -299,21 +300,16 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 						value={newLifeform?.wiki ?? ''}
 						onChange={(e) => setNewLifeform((prev) => ({ ...prev, wiki: e.target.value }))}
 					/>
-					<button
-						type='button'
+					<Icon
+						name='variable_insert'
 						onClick={() => setNewLifeform((prev) => ({ ...prev, wiki: `https://en.wikipedia.org/wiki/${prev.name ?? ''}` }))}
-					>
-						&lt;&lt;&lt;
-					</button>
-					<button
-						className={newLifeform?.showWiki ? 'show' : 'hide'}
-						type='button'
-						onClick={() => setNewLifeform((prev) => ({ ...prev, showWiki: !prev.showWiki }))}
-					>
-						Show Wiki
-					</button>
+					/>
+					<Icon
+						name={showWiki ? 'preview' : 'preview_off'}
+						onClick={() => setShowWiki(!showWiki)}
+					/>
 				</div>
-				{newLifeform?.showWiki && (
+				{showWiki && (
 					<iframe
 						src={newLifeform?.wiki ?? `https://en.wikipedia.org/wiki/${newLifeform?.name ?? ''}`}
 						title='Wiki Link'
@@ -331,9 +327,6 @@ const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
 			</div>
 
 			{errorMessage && <p className='error-message'>{errorMessage}</p>}
-
-			<p>Available Taxonomies: {taxonomyList.join(', ')}</p>
-			<p>Available Parents: {parentNames.join(', ')}</p>
 		</form>
 	)
 
