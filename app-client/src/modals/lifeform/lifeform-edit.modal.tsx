@@ -22,7 +22,7 @@ function cloneLifeform(lifeform: LifeformData): LifeformData {
 		taxonomy: lifeform.taxonomy,
 		description: lifeform.description,
 		parentId: lifeform.parentId,
-		wiki: lifeform.wiki,
+		wiki: lifeform.wiki
 	} as LifeformData
 }
 
@@ -138,7 +138,7 @@ const EditLifeformModal = ({ show, onClose, lifeNode }: EditLifeformModalProps) 
 		}
 
 		// The name is unique.
-		if (Object.entries(lifeNames).some(([id, node]) => node.id !== newLifeform.id && node.name === newLifeform.name)) {
+		if (Object.values(lifeNames).some((node) => node.id !== newLifeform.id && node.name === newLifeform.name)) {
 			setErrorMessage('Lifeform name must be unique.')
 			setFocusedField('lifeform-name-input')
 			return false
@@ -277,6 +277,7 @@ const EditLifeformModal = ({ show, onClose, lifeNode }: EditLifeformModalProps) 
 					<option key='none' value='' disabled>
 						-- Select one --
 					</option>
+					
 					{taxonomyList.map((taxonomy) => (
 						<option key={taxonomy} value={taxonomy}>
 							{taxonomy.charAt(0).toUpperCase() + taxonomy.slice(1)}
@@ -378,5 +379,5 @@ const EditLifeformModal = ({ show, onClose, lifeNode }: EditLifeformModalProps) 
 		</div>
 	)
 }
-	
+
 export default EditLifeformModal

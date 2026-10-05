@@ -26,7 +26,7 @@ export interface NodeData extends LifeformData {
 export const Taxonomies = ['life', 'domain', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] as const
 export type Taxonomy = (typeof Taxonomies)[number]
 
-interface LifeStata {
+interface LifeState {
 	/** A full list of all lifeforms. */
 	lifeNodes: Record<string, NodeData>
 	/** Fetch the list of all lifeforms. */
@@ -53,7 +53,42 @@ interface LifeStata {
 	toggleShowChildren: (lifeNode: NodeData, show: boolean, all?: boolean) => void
 }
 
-export const useLife = create<LifeStata>((set, get) => {
+function sortLifeforms(items: LifeformData[]) {
+	const childrenByParent = new Map<string | null, LifeformData[]>()
+
+	// Group items by parentId.
+	for (const item of items) {
+		const parentId = item.parentId
+		if (!childrenByParent.has(parentId)) {
+			childrenByParent.set(parentId, [])
+		}
+	}
+
+	// Sort siblings alphabetically by name at each level.
+	for (const [, children] of childrenByParent) {
+		children.sort((a, b) => a.name.localeCompare(b.name))
+	}
+
+	const sorted: LifeformData[] = []
+
+	// Perform depth-first traversal
+	function traversal(parentId: string | null) {
+		const children = childrenByParent.get(parentId)
+		if (!children) return
+
+		for (const child of children) {
+			sorted.push(child)
+			traversal(child.id)
+		}
+	}
+
+	//
+	traversal(null)
+
+	return sorted
+}
+
+export const useLife = create<LifeState>((set, get) => {
 	const lifeNodes = {} as Record<string, NodeData>
 
 	async function fetchLifeforms() {
@@ -98,8 +133,11 @@ export const useLife = create<LifeStata>((set, get) => {
 		const lifeformData = lifeformJson as LifeformData[]
 		lifeformData.push(newLifeform)
 
+		// Sort lifeforms
+		const sortedLifeforms = sortLifeforms(lifeformData)
+
 		// Write to disk/API
-		await updateLifeformAPI(lifeformData)
+		await updateLifeformAPI(sortedLifeforms)
 
 		// Re-build tree relationships from the updated JSON module
 		await fetchLifeforms()
@@ -121,10 +159,13 @@ export const useLife = create<LifeStata>((set, get) => {
 
 		// Mutate local array reference
 		const lifeformData = lifeformJson as LifeformData[]
-		lifeformData[lifeformData.findIndex(lf => lf.id === newLifeform.id)] = newLifeform
+		lifeformData[lifeformData.findIndex((lf) => lf.id === newLifeform.id)] = newLifeform
+
+		// Sort lifeforms
+		const sortedLifeforms = sortLifeforms(lifeformData)
 
 		// Write to disk/API
-		await updateLifeformAPI(lifeformData)
+		await updateLifeformAPI(sortedLifeforms)
 
 		// Re-build tree relationships from the updated JSON module
 		await fetchLifeforms()
