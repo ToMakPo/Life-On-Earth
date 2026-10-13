@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 import lifeformJson from '../assets/test-data/lifeform.json' with { type: 'json' }
 import { updateLifeformAPI } from '../assets/test-data/update-json'
+import { cleanName } from '../utils/global'
 
 export interface LifeformData {
 	id: string
@@ -23,7 +24,20 @@ export interface NodeData extends LifeformData {
 	showChildren: boolean
 }
 
-export const Taxonomies = ['life', 'domain', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] as const
+export const Taxonomies = [
+	'life',
+	'domain',
+	'kingdom',
+	'phylum',
+	'class',
+	'order',
+	'family',
+	'genus',
+	'species',
+	'subspecies',
+	'breed group',
+	'breed'
+] as const
 export type Taxonomy = (typeof Taxonomies)[number]
 
 interface LifeState {
@@ -62,6 +76,7 @@ function sortLifeforms(items: LifeformData[]) {
 		if (!childrenByParent.has(parentId)) {
 			childrenByParent.set(parentId, [])
 		}
+		childrenByParent.get(parentId)?.push(item)
 	}
 
 	// Sort siblings alphabetically by name at each level.
@@ -82,7 +97,6 @@ function sortLifeforms(items: LifeformData[]) {
 		}
 	}
 
-	//
 	traversal(null)
 
 	return sorted
@@ -126,6 +140,9 @@ export const useLife = create<LifeState>((set, get) => {
 		const newId = uuidv4()
 		const newLifeform: LifeformData = { id: newId, ...params }
 
+		newLifeform.name = cleanName(newLifeform.name)
+		newLifeform.commonNames = newLifeform.commonNames.map((n) => cleanName(n))
+
 		// Check for duplicates
 		if (Object.values(currentLifeNodes).find((node) => node.name === newLifeform.name)) return false
 
@@ -153,6 +170,9 @@ export const useLife = create<LifeState>((set, get) => {
 		if (!oldLifeform) return false
 
 		const newLifeform: LifeformData = { ...params }
+
+		newLifeform.name = cleanName(newLifeform.name)
+		newLifeform.commonNames = newLifeform.commonNames.map((n) => cleanName(n))
 
 		// Check for duplicates
 		if (params.name !== oldLifeform.name && Object.values(currentLifeNodes).find((node) => node.name === newLifeform.name)) return false
