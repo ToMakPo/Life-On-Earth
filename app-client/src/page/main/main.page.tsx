@@ -9,7 +9,7 @@ import EditLifeformModal from '../../modals/lifeform/lifeform-edit.modal'
 
 const MainPage = () => {
 	const fetchLifeforms = useLife((state) => state.fetchLifeforms)
-	const lifeNodes = useLife((state) => state.lifeNodes)
+	const lifeNodes = useLife((state) => state.lifeforms)
 
 	useEffect(() => {
 		fetchLifeforms()

@@ -23,7 +23,7 @@ interface AddLifeformModalProps {
 }
 
 const AddLifeformModal = ({ show, onClose }: AddLifeformModalProps) => {
-	const lifeNodes = useLife((state) => state.lifeNodes)
+	const lifeNodes = useLife((state) => state.lifeforms)
 	const addLifeform = useLife((state) => state.addLifeform)
 
 	const [errorMessage, setErrorMessage] = useState<string | null>(null)

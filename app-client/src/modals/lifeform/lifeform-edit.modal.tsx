@@ -27,7 +27,7 @@ function cloneLifeform(lifeform: LifeformData): LifeformData {
 }
 
 const EditLifeformModal = ({ show, onClose, lifeNode }: EditLifeformModalProps) => {
-	const lifeNodes = useLife((state) => state.lifeNodes)
+	const lifeNodes = useLife((state) => state.lifeforms)
 	const updateLifeform = useLife((state) => state.updateLifeform)
 
 	const [errorMessage, setErrorMessage] = useState<string | null>(null)

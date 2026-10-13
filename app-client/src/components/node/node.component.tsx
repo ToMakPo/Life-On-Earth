@@ -9,7 +9,7 @@ interface LifeNodeProps {
 }
 
 const LifeNode = (props: LifeNodeProps) => {
-	const lifeNodes = useLife((state) => state.lifeNodes)
+	const lifeNodes = useLife((state) => state.lifeforms)
 	const activeNode = useMemo(() => lifeNodes[props.lifeformId] ?? null, [props.lifeformId, lifeNodes])
 	const rootNode = useLife((state) => state.rootNode) ?? Object.values(lifeNodes).find((node) => !node.parent) ?? null
 	const isRootNode = !!rootNode && activeNode?.id === rootNode?.id

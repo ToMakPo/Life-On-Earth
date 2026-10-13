@@ -14,20 +14,6 @@
     "wiki": "https://en.wikipedia.org/wiki/Life"
   },
   {
-    "id": "1d1a5ba8-20c4-4c83-bd08-0696ce3b957b",
-    "name": "Bacteria",
-    "commonNames": [
-      "Bacteria",
-      "Bacterium"
-    ],
-    "meaning": "",
-    "characteristics": "",
-    "taxonomy": "domain",
-    "description": "Bacteria are single-celled microorganisms that can be found in various environments. They play a crucial role in nutrient cycling, fermentation, and can also cause diseases.",
-    "parentId": "03a2dab5-fb33-438a-b510-ded1b27c6789",
-    "wiki": "https://en.wikipedia.org/wiki/Bacteria"
-  },
-  {
     "id": "9ebcf515-6b0d-4384-9872-d0533a253228",
     "name": "Archaea",
     "commonNames": [
@@ -42,6 +28,20 @@
     "wiki": "https://en.wikipedia.org/wiki/Archaea"
   },
   {
+    "id": "1d1a5ba8-20c4-4c83-bd08-0696ce3b957b",
+    "name": "Bacteria",
+    "commonNames": [
+      "Bacteria",
+      "Bacterium"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "domain",
+    "description": "Bacteria are single-celled microorganisms that can be found in various environments. They play a crucial role in nutrient cycling, fermentation, and can also cause diseases.",
+    "parentId": "03a2dab5-fb33-438a-b510-ded1b27c6789",
+    "wiki": "https://en.wikipedia.org/wiki/Bacteria"
+  },
+  {
     "id": "40339043-0431-489d-a3af-a36cf7789b35",
     "name": "Eukarya",
     "commonNames": [
@@ -53,63 +53,6 @@
     "description": "Eukarya are organisms whose cells have a nucleus enclosed within membranes. This domain includes animals, plants, fungi, and protists.",
     "parentId": "03a2dab5-fb33-438a-b510-ded1b27c6789",
     "wiki": "https://en.wikipedia.org/wiki/Eukarya"
-  },
-  {
-    "id": "cb6dc0cd-25d1-4d2d-bfee-e1abdbb311ba",
-    "name": "Monera",
-    "commonNames": [
-      "Prokaryotes"
-    ],
-    "meaning": "",
-    "characteristics": "",
-    "taxonomy": "kingdom",
-    "description": "Monera is a kingdom that includes prokaryotic organisms, which lack a nucleus and other membrane-bound organelles. This kingdom encompasses bacteria and archaea.",
-    "parentId": "40339043-0431-489d-a3af-a36cf7789b35",
-    "wiki": "https://en.wikipedia.org/wiki/Monera"
-  },
-  {
-    "id": "cd30c4e0-7938-463b-9b79-b5062f30fa70",
-    "name": "Protista",
-    "commonNames": [
-      "Protists"
-    ],
-    "meaning": "",
-    "characteristics": "",
-    "taxonomy": "kingdom",
-    "description": "\"Protists are a diverse group of eukaryotic microorganisms that are not animals, plants, or fungi. They can be unicellular or multicellular and exhibit various modes of nutrition.\",",
-    "parentId": "40339043-0431-489d-a3af-a36cf7789b35",
-    "wiki": "https://en.wikipedia.org/wiki/Protista"
-  },
-  {
-    "id": "3eeb1d35-2a56-4e92-a2e8-43c84ec20805",
-    "name": "Plantae",
-    "commonNames": [
-      "Plants",
-      "Vegetation",
-      "Flora"
-    ],
-    "meaning": "[\"Plants\", \"Vegetation\", \"Flora\"],",
-    "characteristics": "",
-    "taxonomy": "kingdom",
-    "description": "Plants are multicellular eukaryotic organisms that belong to the kingdom Plantae. They are primarily autotrophic, producing their own food through photosynthesis.",
-    "parentId": "40339043-0431-489d-a3af-a36cf7789b35",
-    "wiki": "https://en.wikipedia.org/wiki/Plantae"
-  },
-  {
-    "id": "1b37c74b-1af6-4b21-88b7-70506e54eb52",
-    "name": "Fungi",
-    "commonNames": [
-      "Fungi",
-      "Mushrooms",
-      "Yeasts",
-      "Molds"
-    ],
-    "meaning": "",
-    "characteristics": "",
-    "taxonomy": "kingdom",
-    "description": "Fungi are a kingdom of eukaryotic organisms that includes yeasts, molds, and mushrooms. They play essential roles in decomposition and nutrient cycling.",
-    "parentId": "40339043-0431-489d-a3af-a36cf7789b35",
-    "wiki": "https://en.wikipedia.org/wiki/Fungi"
   },
   {
     "id": "dec2ea42-ff36-4dcb-a092-dd8a973b4317",
@@ -182,7 +125,7 @@
     "id": "a3bbd608-fceb-4b54-96df-5b21c4c691e5",
     "name": "Chaetognatha",
     "commonNames": [
-      "arrow worms"
+      "Arrow Worms"
     ],
     "meaning": "Longhair jaw",
     "characteristics": "Chitinous spines either side of head, fins",
@@ -203,5 +146,253 @@
     "description": "Chordates are a phylum of animals that possess a notochord, a dorsal nerve cord, pharyngeal slits, an endostyle, and a post-anal tail at some stage of their development. This group includes vertebrates and some invertebrates.",
     "parentId": "dec2ea42-ff36-4dcb-a092-dd8a973b4317",
     "wiki": "https://en.wikipedia.org/wiki/Chordata"
+  },
+  {
+    "id": "7300ae66-d41b-46d9-bb7b-e51b89283b9c",
+    "name": "Mammalia",
+    "commonNames": [
+      "Mammal"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "class",
+    "description": "",
+    "parentId": "3055a8e5-912d-4cdc-8a70-f8ccc7d7db11",
+    "wiki": "https://en.wikipedia.org/wiki/Mammalia "
+  },
+  {
+    "id": "e27dda6f-7dec-46ac-a2e0-b1321cecabfe",
+    "name": "Carnivora",
+    "commonNames": [
+      "Carnivorans"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "order",
+    "description": "",
+    "parentId": "7300ae66-d41b-46d9-bb7b-e51b89283b9c",
+    "wiki": "https://en.wikipedia.org/wiki/Carnivora "
+  },
+  {
+    "id": "65a2f433-cc43-4c1a-b8d9-166c2724d0c0",
+    "name": "Canidae",
+    "commonNames": [
+      "Dog"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "family",
+    "description": "",
+    "parentId": "e27dda6f-7dec-46ac-a2e0-b1321cecabfe",
+    "wiki": "https://en.wikipedia.org/wiki/Canidae "
+  },
+  {
+    "id": "05aecbd2-086e-4d9c-963a-91db903d6739",
+    "name": "Canis",
+    "commonNames": [],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "genus",
+    "description": "",
+    "parentId": "65a2f433-cc43-4c1a-b8d9-166c2724d0c0",
+    "wiki": "https://en.wikipedia.org/wiki/Canis "
+  },
+  {
+    "id": "294587fa-1ac7-4854-a187-a3db53e0502e",
+    "name": "Canis Lupus",
+    "commonNames": [
+      "Wolf"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "species",
+    "description": "",
+    "parentId": "05aecbd2-086e-4d9c-963a-91db903d6739",
+    "wiki": "https://en.wikipedia.org/wiki/Canis lupus"
+  },
+  {
+    "id": "cc94d3f4-141b-451a-bb66-e3c814a8f887",
+    "name": "Canis Lupus Familiaris",
+    "commonNames": [
+      "Dog",
+      "Domestic Dog"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "subspecies",
+    "description": "",
+    "parentId": "294587fa-1ac7-4854-a187-a3db53e0502e",
+    "wiki": "https://en.wikipedia.org/wiki/Canis lupus familiaris"
+  },
+  {
+    "id": "12005c75-3cd7-45b5-889f-6815338a29a9",
+    "name": "Herding Dog",
+    "commonNames": [],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "breed group",
+    "description": "",
+    "parentId": "cc94d3f4-141b-451a-bb66-e3c814a8f887",
+    "wiki": "https://en.wikipedia.org/wiki/Herding_dog"
+  },
+  {
+    "id": "ae144b81-88ba-4663-b999-2b2b029c2caa",
+    "name": "Border Collie",
+    "commonNames": [
+      "Collie"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "breed",
+    "description": "",
+    "parentId": "12005c75-3cd7-45b5-889f-6815338a29a9",
+    "wiki": "https://en.wikipedia.org/wiki/Border Collie"
+  },
+  {
+    "id": "764b4d47-5e66-48c6-a20c-780253884f16",
+    "name": "Terrier",
+    "commonNames": [],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "breed group",
+    "description": "",
+    "parentId": "cc94d3f4-141b-451a-bb66-e3c814a8f887",
+    "wiki": "https://en.wikipedia.org/wiki/Terrier"
+  },
+  {
+    "id": "7ff338e5-f9fb-440e-8088-b95b6cd8b699",
+    "name": "Irish Terrier",
+    "commonNames": [],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "breed",
+    "description": "",
+    "parentId": "764b4d47-5e66-48c6-a20c-780253884f16",
+    "wiki": "https://en.wikipedia.org/wiki/Irish Terrier"
+  },
+  {
+    "id": "2e7f4513-9901-4ea4-b27a-d9258a797fc2",
+    "name": "Patterdale Terrier",
+    "commonNames": [],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "breed",
+    "description": "",
+    "parentId": "764b4d47-5e66-48c6-a20c-780253884f16",
+    "wiki": "https://en.wikipedia.org/wiki/Patterdale Terrier"
+  },
+  {
+    "id": "efb137bd-1803-4bd0-8e64-bc142e1bca42",
+    "name": "Working Dog",
+    "commonNames": [],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "breed group",
+    "description": "",
+    "parentId": "cc94d3f4-141b-451a-bb66-e3c814a8f887",
+    "wiki": "https://en.wikipedia.org/wiki/Working dog"
+  },
+  {
+    "id": "edb673f8-fabf-469c-bb56-4358af175953",
+    "name": "German Shepherds",
+    "commonNames": [],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "breed",
+    "description": "",
+    "parentId": "efb137bd-1803-4bd0-8e64-bc142e1bca42",
+    "wiki": "https://en.wikipedia.org/wiki/German Shepherds"
+  },
+  {
+    "id": "08388100-45a4-4ed1-a97d-f28c6027f0bc",
+    "name": "Felidae",
+    "commonNames": [],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "family",
+    "description": "",
+    "parentId": "e27dda6f-7dec-46ac-a2e0-b1321cecabfe",
+    "wiki": "https://en.wikipedia.org/wiki/Felidae "
+  },
+  {
+    "id": "2eeeb8bd-1624-4218-a22e-9c9d2f338fee",
+    "name": "Felis",
+    "commonNames": [
+      "Small Cats"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "genus",
+    "description": "",
+    "parentId": "08388100-45a4-4ed1-a97d-f28c6027f0bc",
+    "wiki": "https://en.wikipedia.org/wiki/Felis "
+  },
+  {
+    "id": "8f4a466f-be0f-4063-9625-da6112c5df63",
+    "name": "Cnidaria",
+    "commonNames": [],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "phylum",
+    "description": "",
+    "parentId": "dec2ea42-ff36-4dcb-a092-dd8a973b4317",
+    "wiki": "https://en.wikipedia.org/wiki/Cnidaria"
+  },
+  {
+    "id": "1b37c74b-1af6-4b21-88b7-70506e54eb52",
+    "name": "Fungi",
+    "commonNames": [
+      "Fungi",
+      "Mushrooms",
+      "Yeasts",
+      "Molds"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "kingdom",
+    "description": "Fungi are a kingdom of eukaryotic organisms that includes yeasts, molds, and mushrooms. They play essential roles in decomposition and nutrient cycling.",
+    "parentId": "40339043-0431-489d-a3af-a36cf7789b35",
+    "wiki": "https://en.wikipedia.org/wiki/Fungi"
+  },
+  {
+    "id": "cb6dc0cd-25d1-4d2d-bfee-e1abdbb311ba",
+    "name": "Monera",
+    "commonNames": [
+      "Prokaryotes"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "kingdom",
+    "description": "Monera is a kingdom that includes prokaryotic organisms, which lack a nucleus and other membrane-bound organelles. This kingdom encompasses bacteria and archaea.",
+    "parentId": "40339043-0431-489d-a3af-a36cf7789b35",
+    "wiki": "https://en.wikipedia.org/wiki/Monera"
+  },
+  {
+    "id": "3eeb1d35-2a56-4e92-a2e8-43c84ec20805",
+    "name": "Plantae",
+    "commonNames": [
+      "Plants",
+      "Vegetation",
+      "Flora"
+    ],
+    "meaning": "[\"Plants\", \"Vegetation\", \"Flora\"],",
+    "characteristics": "",
+    "taxonomy": "kingdom",
+    "description": "Plants are multicellular eukaryotic organisms that belong to the kingdom Plantae. They are primarily autotrophic, producing their own food through photosynthesis.",
+    "parentId": "40339043-0431-489d-a3af-a36cf7789b35",
+    "wiki": "https://en.wikipedia.org/wiki/Plantae"
+  },
+  {
+    "id": "cd30c4e0-7938-463b-9b79-b5062f30fa70",
+    "name": "Protista",
+    "commonNames": [
+      "Protists"
+    ],
+    "meaning": "",
+    "characteristics": "",
+    "taxonomy": "kingdom",
+    "description": "\"Protists are a diverse group of eukaryotic microorganisms that are not animals, plants, or fungi. They can be unicellular or multicellular and exhibit various modes of nutrition.\",",
+    "parentId": "40339043-0431-489d-a3af-a36cf7789b35",
+    "wiki": "https://en.wikipedia.org/wiki/Protista"
   }
 ]
