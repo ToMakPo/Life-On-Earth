@@ -161,6 +161,11 @@ const Modal: React.FC<ModalProps> = (props) => {
 	const { onOpen, onClose } = props
 	const modalRef = useRef<HTMLDialogElement>(null)
 
+	const rootElement = useRef<HTMLElement | null>(null)
+	useEffect(() => {
+		rootElement.current = document.getElementById('root')
+	}, [])
+
 	////////////////////////////
 	/// OPEN AND CLOSE LOGIC ///
 	////////////////////////////
@@ -297,9 +302,12 @@ const Modal: React.FC<ModalProps> = (props) => {
 	/// RENDER COMPONENT ///
 	////////////////////////
 	// #region Render
+
+	if (!rootElement.current) return null
+	
 	const className = [
-		props.className?.split(' ') ?? '',
 		'modal-component',
+		props.className?.split(' ') ?? '',
 		`size-${size}`,
 		backdropClosable ? 'backdrop-click' : '',
 		openState === 'closing' ? 'closing' : openState === 'opened' ? 'opened' : ''
@@ -323,7 +331,7 @@ const Modal: React.FC<ModalProps> = (props) => {
 		</dialog>
 	)
 
-	return createPortal(openState !== 'closed' && component, document.body)
+	return createPortal(openState !== 'closed' && component, rootElement.current)
 }
 
 export type { ModalProps, SizeOption }
