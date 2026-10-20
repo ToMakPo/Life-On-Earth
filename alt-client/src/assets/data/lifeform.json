@@ -1,9 +1,117 @@
 [
   {
+    "id": "9f6156bb-6515-4eb5-8d17-1e37c21da821",
+    "name": "Aardvark",
+    "tags": [
+      "Animals",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "8bebdb50-d4ea-472f-bfca-157a5f03ac5d",
+    "name": "Beaver",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "0f97af17-21d9-4a18-bab3-31bb5bf6bad4",
+    "name": "Birch Mouse",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "eef88d53-49a0-4359-8be0-3dab6b047e59",
+    "name": "Bird",
+    "tags": [
+      "Animals",
+      "Pets"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "36ec734e-147d-47c6-8778-ffa445980562",
+    "name": "Black Squirrel",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents",
+      "Squirrel"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_PyT_NoTu9yBYvIvjG_DMiDy6etjsx3Q7MSkHa8zYYA&s=10",
+    "description": ""
+  },
+  {
+    "id": "9e7f0ddf-e049-4da2-bf11-aa46488e05c8",
+    "name": "Capuchin Monkey",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Monkey"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "201a9c08-3c8b-456f-adb2-1728cc5680d5",
+    "name": "Capybara",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
     "id": "6467e31a-b73a-4c03-8d6b-35a16ef32ddf",
     "name": "Cat",
     "tags": [
-      "Animals"
+      "Animals",
+      "Pets"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "3461caf1-32cb-4ef3-ad30-15d6ad6a3f4e",
+    "name": "Chinchilla",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Pets",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "90d4cd82-e746-4f19-94c7-6916ff3d84dd",
+    "name": "Crow",
+    "tags": [
+      "Animals",
+      "Birds"
     ],
     "wikiTitle": "",
     "imageUrl": "",
@@ -15,6 +123,426 @@
     "tags": [
       "Animals",
       "Pets"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "f8ff2231-c929-4d63-9654-3ea2b1593d9b",
+    "name": "Eastern Chipmunk",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents",
+      "Squirrel"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi6AYETtWQAkauDpfuEAQjQB-BrRXVVxIUUy1akvoJhg&s=10",
+    "description": ""
+  },
+  {
+    "id": "fc951d3c-5a20-4c5b-99e8-96a7272c44f3",
+    "name": "Eastern Gray Squirrel",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents",
+      "Squirrel"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "75c71e1d-00b9-4450-bd12-24bbb29dfbdc",
+    "name": "Elephant",
+    "tags": [
+      "Animals",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "3e958e47-dccb-4aa3-b8b6-3c037bf1757b",
+    "name": "Fox Squirrel",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents",
+      "Squirrel"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "2e0013d7-c0bf-458a-8f1d-6aa6e513698b",
+    "name": "Galago",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Monkey"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "ec05d146-1eb9-4e57-9fe2-53400e8030da",
+    "name": "Gibbon",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Monkey"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "a0021a70-c7eb-4a6b-934a-6118d78d2101",
+    "name": "Guinea Pig",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Pets",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "3f8062ec-d06c-4e5d-a12c-cb4a6db341fa",
+    "name": "Hamster",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Pets",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "382ea581-5554-43bf-8cee-c6938dd1fc80",
+    "name": "Howler Monkey",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Monkey"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "09066057-72a3-4c96-a31a-5ac10dd7a1a2",
+    "name": "Jerboa",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "c55e47a2-c887-4751-be82-8c7e516dd3d4",
+    "name": "Kangaroo",
+    "tags": [
+      "Animals",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "0fa6c4c8-b367-45a4-8b85-09ad78019763",
+    "name": "Kangaroo Rat",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "845607c7-0f83-4084-8aa8-5b0f15ab42d8",
+    "name": "Koala",
+    "tags": [
+      "Animals",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "00dbf8ef-b58e-4ca3-af44-ca73e1995630",
+    "name": "Manatee",
+    "tags": [
+      "Animals",
+      "Aquatic",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "62a72169-77ec-40c9-98fa-b7a8c6fec17e",
+    "name": "Monkey",
+    "tags": [
+      "Animals",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "27376745-b26f-4d76-889a-a05bcf40cedb",
+    "name": "Mouse",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Pets",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "03da99e9-08bc-4431-aaaa-36f0ca8cbbb8",
+    "name": "Naked Mole-rat",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "https://www.worldlandtrust.org/wp-content/uploads/2025/12/naked-mole-rat.jpg",
+    "description": ""
+  },
+  {
+    "id": "df2d5832-09ba-4e72-97e9-a05628c0617e",
+    "name": "Opossum",
+    "tags": [
+      "Animals",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "ca7b400b-5aa4-476d-9501-c8866e5bfc26",
+    "name": "Otter",
+    "tags": [
+      "Animals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "49390249-dc32-42de-a480-5feee6fa052d",
+    "name": "Porcupine",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "df53af4e-9b2f-452d-bffe-c01b310c2e24",
+    "name": "Rabbit",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Pets",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "ab20a3d3-8645-4b14-b9b4-7db77419a94c",
+    "name": "Rat",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Pets",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "17c2cd20-38c6-433b-8b8e-de15176a2a3a",
+    "name": "Raven",
+    "tags": [
+      "Animals",
+      "Birds"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "5670c83d-bb4f-49cd-a68c-aec65bbea25d",
+    "name": "Red Squirrel",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents",
+      "Squirrel"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJezRrQtktqTwqPrcjfrMB-MlI8dMUXa9n6Dt5fh9t2A&s=10",
+    "description": ""
+  },
+  {
+    "id": "946e7a37-b327-41f2-acb9-66d6745e0995",
+    "name": "Shrew",
+    "tags": [
+      "Animals",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "44dd9ef2-2d9e-441d-9140-baae8d80f809",
+    "name": "Southern Flying Squirrel",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents",
+      "Squirrel"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsgjy7TuF2eYCWWHtGkCDYLqz32x29M57WMqZvDoGMdA&s=10",
+    "description": ""
+  },
+  {
+    "id": "d4ce1185-6a3b-4509-bd3d-5e8796443e8f",
+    "name": "Spider Monkey",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Monkey"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "42bdc884-fe62-4c7a-804d-564553044798",
+    "name": "Squirrel",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "https://www.vetmed.wisc.edu/wp-content/uploads/2022/01/joshua-j-cotten-XQqbauEeors-unsplash-scaled.jpg",
+    "description": ""
+  },
+  {
+    "id": "4cb9bb3e-a122-41e0-9570-d0609d0df82e",
+    "name": "Squirrel Monkey",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Monkey"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "0d647b17-1664-41e8-a2a1-6a9c3c5d5ccd",
+    "name": "Tarsier",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Monkey"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "394aad86-1cf0-4eaa-8260-7a191f1406d7",
+    "name": "Wallaby",
+    "tags": [
+      "Animals",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "d473f5ac-13ee-4a73-9b61-e05810c218b0",
+    "name": "White Squirrel",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Rodents",
+      "Squirrel"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSdUlbKp2KC0Yci8ym-OSfAHpqj4TuQix51sNVpKTc-w&s=10",
+    "description": ""
+  },
+  {
+    "id": "880b28cb-0866-4cf9-90d4-9ab45df2aa9d",
+    "name": "Wombat",
+    "tags": [
+      "Animals",
+      "Mammals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "c953b28e-5d8b-4bec-baa4-4fd99e5afca0",
+    "name": "Woolly Lemur",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Monkey"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "e9d36dbe-09e7-4105-ab50-c97c2879694d",
+    "name": "Woolly Monkey",
+    "tags": [
+      "Animals",
+      "Mammals",
+      "Monkey"
     ],
     "wikiTitle": "",
     "imageUrl": "",

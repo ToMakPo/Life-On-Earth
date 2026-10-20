@@ -46,6 +46,11 @@ const AddLifeformModal = (props: AddLifeformModalProps) => {
 		if (!show) setValues({ ...EmptyValues, tags: storedTags ? JSON.parse(storedTags) : [] })
 	}, [show])
 
+	useEffect(() => {
+		console.log('Updating last tag list in localStorage', values.tags)
+		localStorage.setItem('last-tag-list', JSON.stringify(values.tags))
+	}, [JSON.stringify(values.tags)])
+
 	const [wikiData, setWikiData] = useState<WikiData | null>(null)
 
 	useEffect(() => {
@@ -167,7 +172,10 @@ const AddLifeformModal = (props: AddLifeformModalProps) => {
 					value={tagInput}
 					setValue={(v) => setTagInput(v)}
 					onBlur={(e) => {
-						const tags = e.target.value.split(',').map((tag) => cleanName(tag.trim())).filter(Boolean)
+						const tags = e.target.value
+							.split(',')
+							.map((tag) => cleanName(tag.trim()))
+							.filter(Boolean)
 						const uniqueTags = [...new Set([...values.tags, ...tags])]
 						setValues((prev) => ({ ...prev, tags: uniqueTags }))
 						setTagInput('')

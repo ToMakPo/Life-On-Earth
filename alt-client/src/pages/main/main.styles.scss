@@ -5,6 +5,7 @@
 	gap: 1rem;
 	padding: 1rem;
 	background-color: var(--color-bg-lv3);
+	height: 100%;
 
 	code {
 		flex: 1;
@@ -15,5 +16,6 @@
 		font-size: 14px;
 		line-height: 1.5;
 		white-space: pre-wrap;
+		overflow-y: auto;
 	}
 }
