@@ -1,0 +1,44 @@
+.tag-component {
+	font-size: 0.8rem;
+	font-family:  Montserrat, sans-serif;
+	display: inline-flex;
+	align-items: center;
+	padding: 0.125rem 0.75rem;
+	border-radius: 100vw;
+	--bg: light-dark(#6b92bf, #3b5998);
+	--fg: contrast-color(var(--bg));
+	background-color: var(--bg);
+	color: var(--fg);
+	user-select: none;
+
+	&.clickable {
+		cursor: pointer;
+
+		&:hover {
+			filter: brightness(0.9);
+		}
+	}
+
+	.tag-remove-icon {
+		--size: 1.25em !important;
+		opacity: 0;
+		width: 0;
+		transition: 0.2s;
+	}
+
+	&:hover .tag-remove-icon {
+		opacity: 0.75;
+		margin-left: 0.5rem;
+
+		&:hover {
+			opacity: 1;
+			--size: 16px !important;
+		}
+	}
+}
+
+.tag-group-component {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "6467e31a-b73a-4c03-8d6b-35a16ef32ddf",
+    "name": "Cat",
+    "tags": [
+      "Animals"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  },
+  {
+    "id": "f66df143-130d-43cb-a277-f0ff3f1df9fe",
+    "name": "Dog",
+    "tags": [
+      "Animals",
+      "Pets"
+    ],
+    "wikiTitle": "",
+    "imageUrl": "",
+    "description": ""
+  }
+]

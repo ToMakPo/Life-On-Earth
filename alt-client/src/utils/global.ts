@@ -14,3 +14,14 @@ export function cleanName(name: string): string {
 		.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
 		.join(' ')
 }
+
+/** Calculates the estimated reading duration for a given text.
+ *
+ * @param text The text to calculate the reading duration for.
+ * @returns The estimated reading duration in milliseconds.
+ */
+export const calculateReadingDuration = (text: string, wordsPerMinute: number = 160): number => {
+	const wordCount = text.split(' ').length
+	return (wordCount / wordsPerMinute) * 60 * 1000 // returns milliseconds
+}
+

@@ -1,17 +1,17 @@
 import { create } from 'zustand'
 import { v4 as uuidv4 } from 'uuid'
 
-import lifeformJson from '../assets/test-data/lifeform.json' with { type: 'json' }
-import { updateLifeformAPI } from '../assets/test-data/update-json'
+import lifeformJson from '../assets/data/lifeform.json' with { type: 'json' }
+import { updateLifeformAPI } from '../assets/data/update-json'
 import { cleanName } from '../utils/global'
 
 export interface LifeformData {
 	id: string
 	name: string
+	tags: string[]
+	wikiTitle: string | null
+	imageUrl: string | null
 	description: string | null
-	groupId: string | null
-	wiki: string
-	imageId: string | null
 }
 export type LifeformInput = Omit<LifeformData, 'id'>
 
@@ -25,62 +25,36 @@ interface LifeState {
 	/** Update a lifeform. */
 	updateLifeform: (params: LifeformData) => Promise<boolean>
 
-	/** Display all lifeforms that have a group with this id. */
+	/** Display all lifeforms for this group. */
 	showGroup: string | null
-	/** Set the show group id. */
-	setShowGroup: (id: string | null) => void
+	/** Set the  show group. */
+	setShowGroup: (group: string | null) => void
+
+	/** Get a list of all of the tags. */
+	tagList: string[]
 }
 
-function sortLifeforms(items: LifeformData[]) {
-	const childrenByGroup = new Map<string | null, LifeformData[]>()
-
-	// Group items by groupId.
-	for (const item of items) {
-		const groupId = item.groupId
-		if (!childrenByGroup.has(groupId)) {
-			childrenByGroup.set(groupId, [])
-		}
-		childrenByGroup.get(groupId)?.push(item)
-	}
-
-	// Sort siblings alphabetically by name at each level.
-	for (const [, children] of childrenByGroup) {
-		children.sort((a, b) => a.name.localeCompare(b.name))
-	}
-
-	const sorted: LifeformData[] = []
-
-	// Perform depth-first traversal
-	function traversal(groupId: string | null) {
-		const children = childrenByGroup.get(groupId)
-		if (!children) return
-
-		for (const child of children) {
-			sorted.push(child)
-			traversal(child.id)
-		}
-	}
-
-	traversal(null)
-
-	return sorted
+function sortLifeforms(items: LifeformData[]): LifeformData[] {
+	return [...items].sort((a, b) => a.name.localeCompare(b.name))
 }
 
 export const useLife = create<LifeState>((set, get) => {
-	const lifeNodes = {} as Record<string, LifeformData>
+	const lifeforms = {} as Record<string, LifeformData>
 
 	async function fetchLifeforms() {
 		const lifeformData = lifeformJson as LifeformData[]
 
-		const lifeNodes = lifeformData.reduce(
+		const lifeforms = lifeformData.reduce(
 			(acc, data) => {
 				acc[data.id] = { ...data }
 				return acc
 			},
 			{} as Record<string, LifeformData>
 		)
-
-		set({ lifeforms: lifeNodes })
+		
+		const tagList = [...new Set(Object.values(lifeforms).flatMap((lf) => lf.tags))]
+		
+		set({ lifeforms, tagList })
 	}
 
 	async function addLifeform(params: LifeformInput): Promise<boolean> {
@@ -90,9 +64,11 @@ export const useLife = create<LifeState>((set, get) => {
 		const newLifeform: LifeformData = { id: newId, ...params }
 
 		newLifeform.name = cleanName(newLifeform.name)
+		newLifeform.tags.map((tag) => cleanName(tag))
 
 		// Check for duplicates
-		if (Object.values(currentLifeNodes).find((node) => node.name === newLifeform.name && node.groupId === newLifeform.groupId)) return false
+		const foundLifeform = Object.values(currentLifeNodes).find((node) => node.name === newLifeform.name)
+		if (foundLifeform) return false
 
 		// Mutate local array reference
 		const lifeformData = lifeformJson as LifeformData[]
@@ -122,7 +98,9 @@ export const useLife = create<LifeState>((set, get) => {
 		newLifeform.name = cleanName(newLifeform.name)
 
 		// Check for duplicates
-		if (params.name !== oldLifeform.name && Object.values(currentLifeNodes).find((node) => node.name === newLifeform.name)) return false
+		const nameUpdated = params.name !== oldLifeform.name
+		const foundLifeform = Object.values(currentLifeNodes).find((node) => node.name === newLifeform.name)
+		if (nameUpdated && foundLifeform) return false
 
 		// Mutate local array reference
 		const lifeformData = lifeformJson as LifeformData[]
@@ -142,22 +120,25 @@ export const useLife = create<LifeState>((set, get) => {
 
 	const showGroup = null
 
-	function setShowGroup(id: string | null) {
-		set({ showGroup: id })
+	function setShowGroup(group: string | null) {
+		set({ showGroup: group })
 	}
 
+	const tagList = [] as string[]
+
 	return {
-		lifeforms: lifeNodes,
+		lifeforms,
 		fetchLifeforms,
 		addLifeform,
 		updateLifeform,
 		showGroup,
-		setShowGroup
+		setShowGroup,
+		tagList
 	}
 })
 
 if (import.meta.hot) {
-	import.meta.hot.accept('../assets/test-data/lifeform.json', () => {
+	import.meta.hot.accept('../assets/data/lifeform.json', () => {
 		useLife.getState().fetchLifeforms()
 	})
 }
