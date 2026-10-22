@@ -1,21 +1,17 @@
-import type { LifeformData } from '../../store/life'
+export const FileNames = new Set()
 
-export const updateLifeformAPI = async (updatedData: LifeformData[]) => {
+export async function updateJson<T>(fileName: string, data: T[]) {
 	try {
-		const response = await fetch('/api/save-lifeform', {
+		const response = await fetch(`/api/save-${fileName}`, {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(updatedData)
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(data)
 		})
-
 		if (!response.ok) {
-			throw new Error('Server middleware failed to update the JSON file.')
+			throw new Error(`Server middleware failed to update the ${fileName} JSON file.`)
 		}
-
-		console.info('Successfully saved lifeform')
+		console.info(`Successfully saved ${fileName}`)
 	} catch (error) {
-		console.error('Error saving JSON:', error)
+		console.error(`Error saving ${fileName} JSON:`, error)
 	}
 }

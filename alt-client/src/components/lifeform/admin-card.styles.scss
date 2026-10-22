@@ -1,0 +1,19 @@
+.lifeform-card {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-areas:
+		"img name"
+		"img description";
+	gap: 0.5rem 1rem;
+
+	background-color: var(--color-bg-lv4);
+	color: var(--color-fg);
+	padding: 1rem;
+	border-radius: 0.5rem;
+
+	.lifeform-image {
+		grid-area: img;
+		width: 150px;
+		height: auto;
+	}
+}

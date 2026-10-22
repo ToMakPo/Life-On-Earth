@@ -1,0 +1,28 @@
+nav {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	padding: 1rem 2rem;
+	background-color: var(--color-bg-lv3);
+	color: var(--color-fg);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+	a {
+		text-decoration: none;
+		font-weight: 500;
+		transition: 0.2s ease-in-out;
+
+		&:is(:visited, :link) {
+			color: var(--color-fg);
+		}
+
+		&.active {
+			color: var(--color-accent);
+			font-weight: 600;
+		}
+
+		&:is(:hover, :active) {
+			color: var(--color-accent-hv); // Highlight color on hover
+		}
+	}
+}

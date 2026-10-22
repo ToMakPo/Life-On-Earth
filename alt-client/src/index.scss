@@ -1,12 +1,19 @@
 :root {
 	--color-fg: #222;
 	--color-fg-muted: #555;
+
 	--color-bg: #e8e8e8;
 	--color-bg-lv1: #fff;
 	--color-bg-lv2: #eee;
 	--color-bg-lv3: #ddd;
 	--color-bg-lv4: #ccc;
 	--color-bg-lv5: #bbb;
+
+	--color-accent: #0066cc;
+	--color-accent-bg: #0066cc;
+	--color-accent-hv: #005bb5;
+	--color-accent-fg: #ffffff;
+
 	--color-border: #ccc;
 	--color-backdrop: rgba(0, 0, 0, 0.5);
 
@@ -37,6 +44,7 @@
 	:root {
 		--color-fg: #eee;
 		--color-fg-muted: #aaa;
+
 		--color-bg: #181818;
 		--color-bg-lv1: #000;
 		--color-bg-lv2: #111;
@@ -44,6 +52,12 @@
 		--color-bg-lv4: #333;
 		--color-bg-lv5: #444;
 		--color-border: #333;
+
+		--color-accent: #6cabe9;
+		--color-accent-bg: #0066cc;
+		--color-accent-hv: #62a4e6;
+		--color-accent-fg: #ffffff;
+
 		--shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
 	}
 

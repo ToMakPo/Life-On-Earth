@@ -3,6 +3,8 @@ import { defineConfig } from 'vite'
 import fs from 'fs'
 import path from 'path'
 
+import { FileNames } from './src/assets/data/update-json.ts'
+
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [
@@ -11,17 +13,16 @@ export default defineConfig({
 			name: 'write-lifeform-json',
 			configureServer(server) {
 				server.middlewares.use((req, res, next) => {
-					// Listen specifically for our save endpoint
-					if (req.url === '/api/save-lifeform' && req.method === 'POST') {
-						let body = ''
-						req.on('data', (chunk) => (body += chunk))
+					for (const fileName of FileNames) {
+						if (req.url !== `/api/save-${fileName}` || req.method !== 'POST') continue
+
+						const body = [] as string[]
+						req.on('data', (chunk) => body.push(chunk))
 						req.on('end', () => {
 							try {
-								// Resolve path relative to the root vite.config.ts file
-								const targetPath = path.resolve(__dirname, 'src/assets/data/lifeform.json')
+								const targetPath = path.resolve(path.resolve(), `src/assets/data/${fileName}.json`)
 
-								// Parse the incoming body and write it pretty-printed to disk
-								const jsonData = JSON.parse(body)
+								const jsonData = JSON.parse(body.join(''))
 								fs.writeFileSync(targetPath, JSON.stringify(jsonData, null, 2))
 
 								res.statusCode = 200
@@ -29,12 +30,14 @@ export default defineConfig({
 								res.end(JSON.stringify({ success: true }))
 							} catch (error) {
 								res.statusCode = 500
-								res.end(JSON.stringify({ error: 'Failed to write file' }))
+								res.end(JSON.stringify({ error: `Failed to write ${fileName} file` }))
 							}
 						})
-					} else {
-						next() // Pass through all other requests normally
+
+						return
 					}
+
+					next() // Pass through all other requests normally
 				})
 			}
 		}

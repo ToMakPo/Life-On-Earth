@@ -4,12 +4,13 @@ import Form from '../components/form/form.component'
 import TextInput from '../components/form/input.text.component'
 import Modal from '../components/modal/modal.component'
 
-import { useLife, type LifeformData } from '../store/life'
+import { useLife, type LifeformData } from '../store/lifeforms'
 import { fetchWikiData, type WikiData } from '../utils/wiki'
 import { cleanName } from '../utils/global'
 import type { InputMessageProps } from '../components/form/message.component'
 import TagGroup from '../components/tag-group/tag-group.component'
 import InputMessage from '../components/form/message.component'
+import LifeformAdminCard from '../components/lifeform/admin-card.component'
 
 interface EditLifeformModalProps {
 	lifeform: LifeformData | null
@@ -225,10 +226,7 @@ const EditLifeformModal = (props: EditLifeformModalProps) => {
 				message={message('description')}
 			/>
 
-			<div className='row'>
-				{image}
-				{description}
-			</div>
+			<LifeformAdminCard lifeform={values} onEdit={() => {}} />
 
 			<div className='row'>
 				<button type='submit' onClick={handleSave}>

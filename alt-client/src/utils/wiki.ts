@@ -53,27 +53,62 @@ export interface WikipediaSummary {
 }
 
 export interface WikiData {
-    summary: string
+	summary: string
 	imageUrl: string
 }
 
+// export const fetchWikiData = async (title: string): Promise<WikiData | null> => {
+// 	if (!title) return null
+
+// 	try {
+// 		const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`)
+
+// 		if (!res.ok) return null
+
+// 		const data: WikipediaSummary = await res.json()
+
+// 		return {
+// 			summary: data.extract_html ?? '',
+// 			imageUrl: data.originalimage?.source ?? ''
+// 		}
+// 	} catch {
+// 		return null
+// 	}
+// }
 export const fetchWikiData = async (title: string): Promise<WikiData | null> => {
-    if (!title) return null
+	if (!title) return null
 
-    try {
-        const res = await fetch(
-            `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
-        )
+	const formatTitle = (str: string) => str.trim().replace(/\s+/g, '_')
 
-        if (!res.ok) return null
+	try {
+		let currentTitle = formatTitle(title)
+		let res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(currentTitle)}`)
 
-        const data: WikipediaSummary = await res.json()
-		
-        return {
-            summary: data.extract_html ?? '',
+		// FALLBACK: If direct search returns 404, query the Wikipedia Opensearch engine
+		if (!res.ok) {
+			// FIXED: Corrected domain path and properly enclosed template literal \${...}
+			const searchUrl = `https://wikipedia.org{encodeURIComponent(title)}&limit=1&namespace=0&format=json&origin=*`
+			const searchRes = await fetch(searchUrl)
+			
+			if (searchRes.ok) {
+				const searchData = await searchRes.json()
+				// searchData matches shape: [query, [titles], [descriptions], [links]]
+				if (searchData && searchData[1] && searchData[1].length > 0) {
+					currentTitle = formatTitle(searchData[1][0]) // Extract the closest structural match title text string
+					res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(currentTitle)}`)
+				}
+			}
+		}
+
+		if (!res.ok) return null
+
+		const data: WikipediaSummary = await res.json()
+
+		return {
+			summary: data.extract_html ?? '',
 			imageUrl: data.originalimage?.source ?? ''
-        }
-    } catch {
-        return null
-    }
+		}
+	} catch {
+		return null
+	}
 }

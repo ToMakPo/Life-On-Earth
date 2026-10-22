@@ -4,7 +4,7 @@ import Form from '../components/form/form.component'
 import TextInput from '../components/form/input.text.component'
 import Modal from '../components/modal/modal.component'
 
-import { useLife, type LifeformInput } from '../store/life'
+import { useLife, type LifeformInput } from '../store/lifeforms'
 import { fetchWikiData, type WikiData } from '../utils/wiki'
 import { cleanName } from '../utils/global'
 import type { InputMessageProps } from '../components/form/message.component'
@@ -184,10 +184,7 @@ const AddLifeformModal = (props: AddLifeformModalProps) => {
 				/>
 				<TagGroup
 					id='user-tags'
-					// tags={values.tags.sort().map((tag) => ({ text: tag, className: tagList.includes(tag) ? 'existing' : 'new' }))}
-					tags={values.tags.sort().map((tag) => ({
-						text: tag
-					}))}
+					tags={values.tags.sort().map((tag) => ({ text: tag }))}
 					onRemove={(tag) => setValues((prev) => ({ ...prev, tags: prev.tags.filter((t) => t !== tag) }))}
 					tagBgColor='light-dark(red, green)'
 				/>
@@ -226,11 +223,6 @@ const AddLifeformModal = (props: AddLifeformModalProps) => {
 				placeholder='Custom description if different from the wiki summary.'
 				message={message('description')}
 			/>
-
-			<div className='row'>
-				{image}
-				{description}
-			</div>
 
 			<div className='row'>
 				<button type='submit' onClick={handleSave}>
