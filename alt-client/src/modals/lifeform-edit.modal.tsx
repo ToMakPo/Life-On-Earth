@@ -5,7 +5,6 @@ import TextInput from '../components/form/input.text.component'
 import Modal from '../components/modal/modal.component'
 
 import { useLife, type LifeformData } from '../store/lifeforms'
-import { fetchWikiData, type WikiData } from '../utils/wiki'
 import { cleanName } from '../utils/global'
 import type { InputMessageProps } from '../components/form/message.component'
 import TagGroup from '../components/tag-group/tag-group.component'
@@ -47,51 +46,6 @@ const EditLifeformModal = (props: EditLifeformModalProps) => {
 	useEffect(() => {
 		setValues(props.lifeform ?? EmptyValues)
 	}, [show])
-
-	const [wikiData, setWikiData] = useState<WikiData | null>(null)
-
-	useEffect(() => {
-		const wikiTitle = values.wikiTitle || values.name
-
-		fetchWikiData(wikiTitle.toLocaleLowerCase()).then(setWikiData)
-	}, [values.name, values.wikiTitle])
-
-	const image = useMemo(() => {
-		const imageUrl = values.imageUrl || wikiData?.imageUrl || ''
-		if (!imageUrl) return null
-
-		const styles = {
-			objectFit: 'contain',
-			height: 'auto',
-			width: 'auto',
-			maxHeight: '500px',
-			maxWidth: '50%'
-		} as React.CSSProperties
-
-		return (
-			<img
-				src={imageUrl}
-				alt={`Image of ${values.name}`}
-				style={styles}
-				onLoad={(e) => {
-					e.currentTarget.style.display = 'block'
-					setImageError(false)
-				}}
-				onError={(e) => {
-					e.currentTarget.style.display = 'none'
-					setImageError(true)
-				}}
-			/>
-		)
-	}, [values.imageUrl, wikiData])
-
-	const description = useMemo(() => {
-		const text = values.description || wikiData?.summary || ''
-
-		if (!text) return null
-
-		return <div className='wiki-summary' dangerouslySetInnerHTML={{ __html: text.replace(/\n/g, '<br /><br />') }} />
-	}, [values.description, wikiData?.summary])
 
 	async function saveLifeform(lifeform: LifeformData) {
 		if (!validateInputs()) return false

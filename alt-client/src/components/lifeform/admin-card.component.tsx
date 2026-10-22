@@ -19,8 +19,6 @@ const LifeformAdminCard = (props: AdminCardProps) => {
 
 	useEffect(() => {
 		getDetails(lifeform).then(setLifeDetails)
-		// FIXED: Tracking the stable primitive key ensures this hook only fires
-		// when the actual lifeform identity changes, breaking the infinite render loop.
 	}, [lifeform.id, lifeform.name, getDetails])
 
 	return (
