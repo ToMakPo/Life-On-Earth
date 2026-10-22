@@ -41,9 +41,8 @@ const AdminPage = () => {
 	const lifeformList = useMemo(() => {
 		return (
 			<div>
-				
 				{selectedLifeforms.map((lifeform) => (
-					<LifeformAdminCard lifeform={lifeform} onEdit={(lifeform) => setOpenEditLifeformModal(lifeform)} />
+					<LifeformAdminCard key={lifeform.id} lifeform={lifeform} onEdit={(lifeform) => setOpenEditLifeformModal(lifeform)} />
 				))}
 			</div>
 		)

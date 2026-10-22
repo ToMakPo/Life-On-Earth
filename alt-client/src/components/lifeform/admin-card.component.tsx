@@ -16,12 +16,15 @@ const LifeformAdminCard = (props: AdminCardProps) => {
 
 	const [lifeDetails, setLifeDetails] = useState<LifeDetails | null>(null)
 	const getDetails = useLife((state) => state.getDetails)
+
 	useEffect(() => {
 		getDetails(lifeform).then(setLifeDetails)
-	}, [lifeform])
+		// FIXED: Tracking the stable primitive key ensures this hook only fires
+		// when the actual lifeform identity changes, breaking the infinite render loop.
+	}, [lifeform.id, lifeform.name, getDetails])
 
 	return (
-		<div key={lifeform.id} className='lifeform-card' onClick={() => onEdit?.(lifeform as LifeformData)}>
+		<div className='lifeform-card' onClick={() => onEdit?.(lifeform as LifeformData)}>
 			<h3 className='lifeform-name'>{lifeform.name}</h3>
 
 			{lifeDetails?.imageUrl && <img className='lifeform-image' src={lifeDetails.imageUrl} alt={lifeform.name} />}
