@@ -46,7 +46,6 @@ const AddLifeformModal = (props: AddLifeformModalProps) => {
 	}, [show])
 
 	useEffect(() => {
-		console.log('Updating last tag list in localStorage', values.tags)
 		localStorage.setItem('last-tag-list', JSON.stringify(values.tags))
 	}, [JSON.stringify(values.tags)])
 
