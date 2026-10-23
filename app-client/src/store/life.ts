@@ -1,8 +1,8 @@
 import { create } from 'zustand'
 import { v4 as uuidv4 } from 'uuid'
 
-import lifeformJson from '../assets/test-data/lifeform.json' with { type: 'json' }
-import { updateLifeformAPI } from '../assets/test-data/update-json'
+import lifeformJson from '../assets/data/db-lifeform.json' with { type: 'json' }
+import { updateLifeformAPI } from '../assets/data/update-json'
 import { cleanName } from '../utils/global'
 
 export interface LifeformData {
@@ -242,7 +242,7 @@ export const useLife = create<LifeState>((set, get) => {
 })
 
 if (import.meta.hot) {
-	import.meta.hot.accept('../assets/test-data/lifeform.json', () => {
+	import.meta.hot.accept('../assets/data/db-lifeform.json', () => {
 		useLife.getState().fetchLifeforms()
 	})
 }

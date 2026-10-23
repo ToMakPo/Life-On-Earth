@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { v4 as uuidv4 } from 'uuid'
 
-import rankingsJson from '../assets/data/rankings.json' with { type: 'json' }
+import rankingsJson from '../assets/data/db-rankings.json' with { type: 'json' }
 import { FileNames, updateJson } from '../assets/data/update-json'
 
 FileNames.add('rankings')
@@ -164,7 +164,7 @@ export const useLife = create<RankingState>((set, get) => {
 })
 
 if (import.meta.hot) {
-	import.meta.hot.accept('../assets/data/ranking.json', () => {
+	import.meta.hot.accept('../assets/data/db-ranking.json', () => {
 		useLife.getState().fetchRankings()
 	})
 }

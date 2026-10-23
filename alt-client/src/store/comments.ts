@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { v4 as uuidv4 } from 'uuid'
 
-import commentsJson from '../assets/data/comments.json' with { type: 'json' }
+import commentsJson from '../assets/data/db-comments.json' with { type: 'json' }
 import { FileNames, updateJson } from '../assets/data/update-json'
 
 FileNames.add('comments')
@@ -174,7 +174,7 @@ export const useLife = create<CommentState>((set, get) => {
 })
 
 if (import.meta.hot) {
-	import.meta.hot.accept('../assets/data/comment.json', () => {
+	import.meta.hot.accept('../assets/data/db-comment.json', () => {
 		useLife.getState().fetchComments()
 	})
 }

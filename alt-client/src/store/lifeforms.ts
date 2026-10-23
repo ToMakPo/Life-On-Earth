@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { v4 as uuidv4 } from 'uuid'
 
-import lifeformJson from '../assets/data/lifeform.json' with { type: 'json' }
+import lifeformJson from '../assets/data/db-lifeform.json' with { type: 'json' }
 import { FileNames, updateJson } from '../assets/data/update-json'
 
 import { cleanName } from '../utils/global'
@@ -204,7 +204,7 @@ export const useLife = create<LifeformState>((set, get) => {
 })
 
 if (import.meta.hot) {
-	import.meta.hot.accept('../assets/data/lifeform.json', () => {
+	import.meta.hot.accept('../assets/data/db-lifeform.json', () => {
 		useLife.getState().fetchLifeforms()
 	})
 }

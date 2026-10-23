@@ -18,7 +18,7 @@ export default defineConfig({
 						req.on('end', () => {
 							try {
 								// Resolve path relative to the root vite.config.ts file
-								const targetPath = path.resolve(__dirname, 'src/assets/test-data/lifeform.json')
+								const targetPath = path.resolve(__dirname, 'src/assets/data/db-lifeform.json')
 
 								// Parse the incoming body and write it pretty-printed to disk
 								const jsonData = JSON.parse(body)

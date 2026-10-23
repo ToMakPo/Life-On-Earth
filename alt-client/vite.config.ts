@@ -20,7 +20,7 @@ export default defineConfig({
 						req.on('data', (chunk) => body.push(chunk))
 						req.on('end', () => {
 							try {
-								const targetPath = path.resolve(path.resolve(), `src/assets/data/${fileName}.json`)
+								const targetPath = path.resolve(path.resolve(), `src/assets/data/db-${fileName}.json`)
 
 								const jsonData = JSON.parse(body.join(''))
 								fs.writeFileSync(targetPath, JSON.stringify(jsonData, null, 2))
