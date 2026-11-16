@@ -13,7 +13,6 @@ interface RankingData {
 	rank: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 	score: number
 }
-export type RankingInput = Omit<RankingData, 'id'>
 
 // wiki list: https://en.wikipedia.org/wiki/List_of_mammals
 
@@ -26,7 +25,7 @@ interface RankingState {
 	 *
 	 * @param params The params of the new ranking.
 	 */
-	addRanking: (params: RankingInput) => Promise<boolean>
+	addRanking: (params: RankingData) => Promise<boolean>
 	/** Update a ranking.
 	 *
 	 * @param params The updated params of the ranking.
@@ -59,7 +58,7 @@ async function updateFile(data: RankingData[]) {
 	return updateJson<RankingData>('ranking', data)
 }
 
-export const useLife = create<RankingState>((set, get) => {
+export const useRankings = create<RankingState>((set, get) => {
 	const rankings = {} as Record<string, RankingData>
 
 	async function fetchRankings() {
@@ -76,7 +75,7 @@ export const useLife = create<RankingState>((set, get) => {
 		set({ rankings })
 	}
 
-	async function addRanking(params: RankingInput): Promise<boolean> {
+	async function addRanking(params: RankingData): Promise<boolean> {
 		const currentRankings = get().rankings
 
 		const newId = uuidv4()
@@ -115,7 +114,7 @@ export const useLife = create<RankingState>((set, get) => {
 
 		// Mutate local array reference
 		const rankingData = rankingsJson as RankingData[]
-		const index = rankingData.findIndex((lf) => lf.id === newRanking.id)
+		const index = rankingData.findIndex((ranking) => ranking.id === newRanking.id)
 		rankingData[index] = newRanking
 
 		// Sort rankings
@@ -135,7 +134,7 @@ export const useLife = create<RankingState>((set, get) => {
 
 		// Check if the id is in the list.
 		const rankingData = rankingsJson as RankingData[]
-		const index = rankingData.findIndex((lf) => lf.id === id)
+		const index = rankingData.findIndex((ranking) => ranking.id === id)
 
 		if (index === -1) return false
 
@@ -165,6 +164,6 @@ export const useLife = create<RankingState>((set, get) => {
 
 if (import.meta.hot) {
 	import.meta.hot.accept('../assets/data/db-ranking.json', () => {
-		useLife.getState().fetchRankings()
+		useRankings.getState().fetchRankings()
 	})
 }

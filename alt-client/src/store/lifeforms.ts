@@ -17,7 +17,6 @@ export interface LifeformData {
 	imageUrl: string | null
 	description: string | null
 }
-export type LifeformInput = Omit<LifeformData, 'id'>
 
 // wiki list: https://en.wikipedia.org/wiki/List_of_mammals
 
@@ -30,7 +29,7 @@ interface LifeformState {
 	 *
 	 * @param params The params of the new lifeform.
 	 */
-	addLifeform: (params: LifeformInput) => Promise<boolean>
+	addLifeform: (params: LifeformData) => Promise<boolean>
 	/** Update a lifeform.
 	 *
 	 * @param params The updated params of the lifeform.
@@ -66,7 +65,7 @@ async function updateFile(data: LifeformData[]) {
 	return updateJson<LifeformData>('lifeform', data)
 }
 
-export const useLife = create<LifeformState>((set, get) => {
+export const useLifeforms = create<LifeformState>((set, get) => {
 	const lifeforms = {} as Record<string, LifeformData>
 
 	async function fetchLifeforms() {
@@ -80,12 +79,12 @@ export const useLife = create<LifeformState>((set, get) => {
 			{} as Record<string, LifeformData>
 		)
 
-		const tagList = [...new Set(Object.values(lifeforms).flatMap((lf) => lf.tags))]
+		const tagList = [...new Set(Object.values(lifeforms).flatMap((lifeform) => lifeform.tags))]
 
 		set({ lifeforms, tagList })
 	}
 
-	async function addLifeform(params: LifeformInput): Promise<boolean> {
+	async function addLifeform(params: LifeformData): Promise<boolean> {
 		const currentLifeforms = get().lifeforms
 
 		const newId = uuidv4()
@@ -133,7 +132,7 @@ export const useLife = create<LifeformState>((set, get) => {
 
 		// Mutate local array reference
 		const lifeformData = lifeformJson as LifeformData[]
-		const index = lifeformData.findIndex((lf) => lf.id === newLifeform.id)
+		const index = lifeformData.findIndex((lifeform) => lifeform.id === newLifeform.id)
 		lifeformData[index] = newLifeform
 
 		// Sort lifeforms
@@ -153,7 +152,7 @@ export const useLife = create<LifeformState>((set, get) => {
 
 		// Check if the id is in the list.
 		const lifeformData = lifeformJson as LifeformData[]
-		const index = lifeformData.findIndex((lf) => lf.id === id)
+		const index = lifeformData.findIndex((lifeform) => lifeform.id === id)
 
 		if (index === -1) return false
 
@@ -205,7 +204,7 @@ export const useLife = create<LifeformState>((set, get) => {
 
 if (import.meta.hot) {
 	import.meta.hot.accept('../assets/data/db-lifeform.json', () => {
-		useLife.getState().fetchLifeforms()
+		useLifeforms.getState().fetchLifeforms()
 	})
 }
 

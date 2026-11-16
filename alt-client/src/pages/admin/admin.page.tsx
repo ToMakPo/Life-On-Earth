@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 
-import { useLife, type LifeformData } from '../../store/lifeforms'
+import { useLifeforms, type LifeformData } from '../../store/lifeforms'
 
 import TagGroup from '../../components/tag-group/tag-group.component'
 import LifeformAdminCard from '../../components/lifeform/admin-card.component'
@@ -10,8 +10,8 @@ import EditLifeformModal from '../../modals/lifeform-edit.modal'
 import './admin.styles.scss'
 
 const AdminPage = () => {
-	const lifeforms = useLife((state) => state.lifeforms)
-	const tagList = useLife((state) => state.tagList)
+	const lifeforms = useLifeforms((state) => state.lifeforms)
+	const tagList = useLifeforms((state) => state.tagList)
 
 	const [selectedTags, setSelectedTags] = useState<string[]>([])
 	const selectedLifeforms = useMemo(() => {

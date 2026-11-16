@@ -4,7 +4,7 @@ import Form from '../components/form/form.component'
 import TextInput from '../components/form/input.text.component'
 import Modal from '../components/modal/modal.component'
 
-import { useLife, type LifeformData } from '../store/lifeforms'
+import { useLifeforms, type LifeformData } from '../store/lifeforms'
 import { cleanName } from '../utils/global'
 import type { InputMessageProps } from '../components/form/message.component'
 import TagGroup from '../components/tag-group/tag-group.component'
@@ -36,8 +36,8 @@ const EditLifeformModal = (props: EditLifeformModalProps) => {
 	const [imageError, setImageError] = useState(false)
 	const [tagInput, setTagInput] = useState('')
 
-	const editLifeform = useLife((state) => state.updateLifeform)
-	const tagList = useLife((state) => state.tagList)
+	const editLifeform = useLifeforms((state) => state.updateLifeform)
+	const tagList = useLifeforms((state) => state.tagList)
 
 	const unusedTags = useMemo(() => {
 		return tagList.filter((tag) => !values.tags.includes(tag))

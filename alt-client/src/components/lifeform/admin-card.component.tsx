@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLife, type LifeDetails, type LifeformData } from '../../store/lifeforms'
+import { useLifeforms, type LifeDetails, type LifeformData } from '../../store/lifeforms'
 
 import './admin-card.styles.scss'
 
@@ -15,7 +15,7 @@ const LifeformAdminCard = (props: AdminCardProps) => {
 	if (!lifeform.name) return null
 
 	const [lifeDetails, setLifeDetails] = useState<LifeDetails | null>(null)
-	const getDetails = useLife((state) => state.getDetails)
+	const getDetails = useLifeforms((state) => state.getDetails)
 
 	useEffect(() => {
 		getDetails(lifeform).then(setLifeDetails)

@@ -15,7 +15,6 @@ interface CommentData {
 	timestamp: Date
 	updated: Date | null
 }
-export type CommentInput = Omit<CommentData, 'id'>
 
 // wiki list: https://en.wikipedia.org/wiki/List_of_mammals
 
@@ -28,7 +27,7 @@ interface CommentState {
 	 *
 	 * @param params The params of the new comment.
 	 */
-	addComment: (params: CommentInput) => Promise<boolean>
+	addComment: (params: CommentData) => Promise<boolean>
 	/** Update a comment.
 	 *
 	 * @param params The updated params of the comment.
@@ -61,7 +60,7 @@ async function updateFile(data: CommentData[]) {
 	return updateJson<CommentData>('comment', data)
 }
 
-export const useLife = create<CommentState>((set, get) => {
+export const useComments = create<CommentState>((set, get) => {
 	const comments = {} as Record<string, CommentData>
 
 	async function fetchComments() {
@@ -78,11 +77,11 @@ export const useLife = create<CommentState>((set, get) => {
 		set({ comments })
 	}
 
-	async function addComment(params: CommentInput): Promise<boolean> {
+	async function addComment(params: CommentData): Promise<boolean> {
 		const currentComments = get().comments
 
 		const newId = uuidv4()
-		const newComment: CommentData = { ...params, id: newId, updated: null }
+		const newComment: CommentData = { ...params, id: newId, timestamp: new Date(), updated: null }
 
 		// Check for duplicates
 		const foundComment = Object.values(currentComments).find(
@@ -125,7 +124,7 @@ export const useLife = create<CommentState>((set, get) => {
 
 		// Mutate local array reference
 		const commentData = commentsJson as CommentData[]
-		const index = commentData.findIndex((lf) => lf.id === newComment.id)
+		const index = commentData.findIndex((comment) => comment.id === newComment.id)
 		commentData[index] = newComment
 
 		// Sort comments
@@ -145,7 +144,7 @@ export const useLife = create<CommentState>((set, get) => {
 
 		// Check if the id is in the list.
 		const commentData = commentsJson as CommentData[]
-		const index = commentData.findIndex((lf) => lf.id === id)
+		const index = commentData.findIndex((comment) => comment.id === id)
 
 		if (index === -1) return false
 
@@ -175,6 +174,6 @@ export const useLife = create<CommentState>((set, get) => {
 
 if (import.meta.hot) {
 	import.meta.hot.accept('../assets/data/db-comment.json', () => {
-		useLife.getState().fetchComments()
+		useComments.getState().fetchComments()
 	})
 }

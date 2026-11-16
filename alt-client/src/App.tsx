@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 
-import { useLife } from './store/lifeforms'
+import { useLifeforms } from './store/lifeforms'
 
 import MainPage from './pages/main/main.page'
 import AdminPage from './pages/admin/admin.page'
 import Navbar from './layout/navbar.layout'
 
 function App() {
-	const fetchLifeforms = useLife((state) => state.fetchLifeforms)
+	const fetchLifeforms = useLifeforms((state) => state.fetchLifeforms)
 
 	useEffect(() => {
 		fetchLifeforms()
